@@ -46,81 +46,63 @@
 // }
 
 // export default App
-import reactLogo from './assets/react.svg'
-import './App.css'
-import { Fragment } from 'react/jsx-runtime'
-import MyComponent from './components/MyComponent'
-import UserDetails from './components/UserDetails'
+// import reactLogo from './assets/react.svg'
+// import './App.css'
+// import { Fragment } from 'react/jsx-runtime'
+// import MyComponent from './components/MyComponent'
+// import UserDetails from './components/UserDetails'
 
-function App() {
-  let value: String = "KALANA"
-  return (
-    //React wala Elemata Wrap karanna use karanna puluwan
-    <> 
-      <MyComponent>
-      <h5>I'm default prop</h5>
-      </MyComponent>
+// function App() {
+//   let value: String = "KALANA"
+//   return (
+//     //React wala Elemata Wrap karanna use karanna puluwan
+//     <> 
+//       <MyComponent>
+//       <h5>I'm default prop</h5>
+//       </MyComponent>
 
-      <MyComponent name={"Kalana"} age={30} />
+//       <MyComponent name={"Kalana"} age={30} />
 
-      {console.log(value)}
-      {value ? <h1>hello , {value}</h1> : <h1>Hello, React!</h1>}
+//       {console.log(value)}
+//       {value ? <h1>hello , {value}</h1> : <h1>Hello, React!</h1>}
        
       
-      <div>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>    
-     </div>
+//       <div>
+//         <a href="https://react.dev" target="_blank">
+//           <img src={reactLogo} className="logo react" alt="React logo" />
+//         </a>    
+//      </div>
 
-     <div>Hi react 01</div>
-     <div>Hi react 02</div>
-     <div>Hi react 03</div>
-     <div>Hi react 04</div>
-     <div>Hi react 05</div>
+//      <div>Hi react 01</div>
+//      <div>Hi react 02</div>
+//      <div>Hi react 03</div>
+//      <div>Hi react 04</div>
+//      <div>Hi react 05</div>
 
-     <Fragment>
-      <h2>Welcome to React</h2>
-      <p>This is a simple React application.</p>
-     </Fragment>
+//      <Fragment>
+//       <h2>Welcome to React</h2>
+//       <p>This is a simple React application.</p>
+//      </Fragment>
 
-      <h1 style = {{color: "red", backgroundColor: "black"}}>
-             {value ? <h4>hello , {value}</h4> : <h4>Hello, React!</h4>} 
-      </h1>
-
-
-
-
-     <h1>user Details list</h1>
-     <hr />
-     <UserDetails name = "kalana" age = {24} email = "kalana@example.com" address = "colombo" isAdmin = {true} />
-     <hr /> 
-     <UserDetails name = "Nimal" age = {21} email = "nimal@example.com" address = "gampaha" isAdmin = {false} />
+//       <h1 style = {{color: "red", backgroundColor: "black"}}>
+//              {value ? <h4>hello , {value}</h4> : <h4>Hello, React!</h4>} 
+//       </h1>
 
 
 
 
+//      <h1>user Details list</h1>
+//      <hr />
+//      <UserDetails name = "kalana" age = {24} email = "kalana@example.com" address = "colombo" isAdmin = {true} />
+//      <hr /> 
+//      <UserDetails name = "Nimal" age = {21} email = "nimal@example.com" address = "gampaha" isAdmin = {false} />
 
+//     </>
+//   )
 
+// }
 
-
-
-
-
-
-
-
-
-
-
-
-
-    </>
-  )
-
-}
-
-export default App 
+// export default App 
 
 // for wrap element
 
@@ -128,3 +110,55 @@ export default App
 // 2.<> </>  // new way
 // 3.<div> </div>  // using some element 
 
+
+
+import UserDetails from './components/UserDetails'
+
+
+const dataList = [
+        {
+        name : "kalana", 
+        age : 24 , 
+        email : "kalana@example.com" , 
+        address : "colombo" , 
+        isAdmin : true
+        }, 
+
+        {name : "Nimal" , age : 21 , email : "nimal@example.com" , address : "gampaha" , isAdmin : false},
+        {name : "sunil" , age : 22 , email : "sunil@example.com" , address : "nigambo" , isAdmin : false},
+        {name : "hooker" , age : 22 , email : "hooker@example.com" , address : "galla" , isAdmin : false}
+      ]
+
+const app = () => {
+  return (
+    <>
+    <h1>user details</h1>
+    <hr />
+    {dataList.map((user , index)=>{
+
+      return (
+        <>
+        <div className='bg-red-100'>
+        <UserDetails key={index} name={user.name} age={user.age} email={user.email} address = {user.address} isAdmin={user.isAdmin} />
+        </div>
+        <hr />
+        </>
+        
+      )
+    })}
+    
+    {/* <hr />
+    <UserDetails name = "kalama" age = {24} email={"kalana@example.com"} address = "colombo" isAdmin = {true} />
+    <hr />
+    <UserDetails name = "nimal" age = {21} email={"nimal@example.com"} address = "gampaha" isAdmin = {false} />
+    <hr />
+    <UserDetails name = "sunil" age = {22} email={"sunil@example.com"} address = "nigambo" isAdmin = {false} />
+    <hr />
+    <UserDetails name = "hooker" age = {22} email={"hooker@example.com"} address = "galla" isAdmin = {false} /> */
+    
+    }
+    </>
+  )
+}
+
+export default app
